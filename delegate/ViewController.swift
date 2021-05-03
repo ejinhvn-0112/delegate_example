@@ -7,13 +7,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var textField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        textField.delegate = self
     }
-
-
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        label.text = textField.text
+        return true
+    }
 }
 
